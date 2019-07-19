@@ -14,12 +14,12 @@
 # 透视
 **透视**和**透视原点**的属性可用于通过使元素更高的Z轴（更接近观看者）向深度的感觉添加到场景出现较大，而那些更远离于显得更小。缩放与d /（d - Z）成比例，其中**d为透视值**，是从绘图平面到观察者眼睛的假定位置的距离。  
 
-![GitHub Logo](https://ztachi.github.io/learn-matrix3d/src/noteImages/perspective_distance.png)  
+<p align="center"><img src="https://ztachi.github.io/learn-matrix3d/src/noteImages/perspective_distance.png"></p>
 
-_显示缩放的图表取决于透视属性和Z位置。在顶部图中，Z是d的一半。为了使原始圆（实心轮廓）看起来出现在Z（虚线圆圈），圆圈按比例放大两倍，产生浅蓝色圆圈。在底部的图表中，圆圈按比例缩小三分之一，使其显示在原始位置的后面。_  
+_<p align="center">显示缩放的图表取决于透视属性和Z位置。在顶部图中，Z是d的一半。为了使原始圆（实心轮廓）看起来出现在Z（虚线圆圈），圆圈按比例放大两倍，产生浅蓝色圆圈。在底部的图表中，圆圈按比例缩小三分之一，使其显示在原始位置的后面。</p>_  
 
 通常，观察者眼睛的假定位置以绘图为中心。如果需要，可以移动此位置 - 例如，如果网页包含应共享公共视角的多个图形 - 通过设置**perspective-origin**。  
 
-![GitHub Logo](https://ztachi.github.io/learn-matrix3d/src/noteImages/perspective_origin.png)  
+<p align="center"><img src="https://ztachi.github.io/learn-matrix3d/src/noteImages/perspective_origin.png"></p>
 
-_该图显示了向上移动透视原点的效果。_
+_<p align="center">该图显示了向上移动透视原点的效果。</p>_
