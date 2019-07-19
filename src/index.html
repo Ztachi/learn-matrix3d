@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>menu</title>
+    <style>
+        ul {
+            padding: 0;
+            margin: 30px;
+        }
+
+        li {
+            list-style-type: none;
+            counter-increment: list;
+            margin-top: 10px;
+        }
+
+        li::before {
+            content: counter(list)".";
+        }
+
+        li>a {
+            margin-left: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li><a target="_blank" href="./demo-1.html">demo-1</a></li>
+        <li><a target="_blank" href=""></a></li>
+        <li><a target="_blank" href=""></a></li>
+        <li><a target="_blank" href=""></a></li>
+        <li><a target="_blank" href=""></a></li>
+        <li><a target="_blank" href=""></a></li>
+        <li><a target="_blank" href=""></a></li>
+        <li><a target="_blank" href=""></a></li>
+        <li><a target="_blank" href=""></a></li>
+        <li><a target="_blank" href=""></a></li>
+    </ul>
+</body>
+
+</html>

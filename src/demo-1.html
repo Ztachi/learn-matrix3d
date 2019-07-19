@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>demo-1</title>
+    <style>
+        body {
+            padding: 50px;
+            text-align: center;
+        }
+
+        ul {
+            display: flex;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        .div {
+            width: 300px;
+            height: 300px;
+            border: 1px solid orangered;
+            margin: 50px;
+            float: left;
+        }
+
+        .div>div {
+            height: 100%;
+            width: 100%;
+            background-color: skyblue;
+        }
+
+        #div1>div {
+            transform: rotateY(50deg);
+        }
+
+        #div2 {
+            perspective: 500px;
+        }
+
+        #div2>div {
+            transform: rotateY(50deg);
+        }
+
+        p {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <p>
+                transform: rotateY(50deg);
+            </p>
+            <div id="div1" class="div">
+                <div>transform: rotateY(50deg);</div>
+            </div>
+        </li>
+        <li>
+            <p>
+                perspective: 500px;
+                transform: rotateY(50deg);
+            </p>
+            <div id="div2" class="div">
+                <div>transform: rotateY(50deg);
+                </div>
+            </div>
+        </li>
+    </ul>
+
+
+
+</body>
+
+</html>
