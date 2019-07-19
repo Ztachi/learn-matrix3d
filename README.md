@@ -3,7 +3,7 @@
 **[demo](https://ztachi.github.io/learn-matrix3d/src/)**
 
 **perspective**：允许作者做出的子元素具有的三维变换看起来好像他们生活在一个共同的三维空间。**perspective-origin**属性提供对应用透视的原点的控制，有效地改变“消失点”的位置。
-（**perspective**为绘制表面到眼睛的距离）
+[**perspective**为绘制表面(电脑屏幕)到眼睛的距离]
 
 **transform-style**：允许3D转换的元素和它们的3D转化的后代都有一个共同的三维空间，使三维物体的层次结构的施工。
 
