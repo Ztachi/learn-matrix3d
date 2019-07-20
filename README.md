@@ -50,6 +50,7 @@ _<p align="center">该图显示了向上移动透视原点的效果。</p>_
     transform: rotateY(50deg);
     background-color: blue;
 }
+
 .child {
     transform: rotateY(-40deg);
     background-color: lime;
@@ -80,6 +81,7 @@ _<p align="center">由于最外层设置了 **perspective**，所以当蓝色块
     transform: rotateY(50deg);
     background-color: blue;
 }
+
 .child {
     transform: rotateY(-40deg);
     background-color: lime;
