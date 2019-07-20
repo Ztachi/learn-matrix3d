@@ -63,7 +63,7 @@ _<p align="center">由于最外层设置了 **perspective**，所以当蓝色块
 
 在这个例子里面，我在旋转元素 **.transformed** 里面还加入了一个子元素，让他也旋转， **.transformed** 的旋转很有3D立体感，但是他的子元素却没有，为什么？
 
-因为 **perspective** 创建的3维空间只对第一级子元素 **(.transformed)** 有效。要想子元素 **(.transformed)** 的子元素 **(.child)** 也有立体感，有两种方式。
+因为 **perspective** 创建的三维空间只对第一级子元素 **(.transformed)** 有效。要想子元素 **(.transformed)** 的子元素 **(.child)** 也有立体感，有两种方式。
 
 第一种就是在 **.transformed** 上面也加一个 **perspective** ，但是这样就有个问题，因为我 **.transformed** 已经做了旋转了，所以对于 **.transformed** 创建的 **独立的三维空间** ，朝向就有所不同，所以对于我们观察者来说的投影就有所不同，这或许不是我们想达到的效果。
 
