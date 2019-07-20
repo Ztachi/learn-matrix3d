@@ -23,3 +23,52 @@ _<p align="center">显示缩放的图表取决于透视属性和Z位置。在顶
 <p align="center"><img src="https://ztachi.github.io/learn-matrix3d/src/noteImages/perspective_origin.png"></p>
 
 _<p align="center">该图显示了向上移动透视原点的效果。</p>_
+
+# 如何进行3D变换
+要在我们网页的二维平面内构建3D效果，我们脑海中就要脱离二维的概念，想像屏幕里面的元素脱离屏幕正向你眼睛不断靠近或者不断远离。当然我们看不到这个元素本身，而只能看到处于三维空间的他在屏幕上的投影（也就是上一节那两张图所表示的）。
+
+用css代码第一步就是设置一个透视——**perspective**。
+
+假设我HTML结构如下：
+```
+<div class="container">
+                <div class="transformed">
+                    <div class="child"></div>
+                </div>
+ </div>
+ ```
+只要在 **.container** 加上 **perspective** ，在页面上的这个div与你眼睛之间就形成了第三个维度，你看到的页面上的 **.container** 图形，就只是三维空间中的 **.container** 在二维平面的投影。可以通过 **translateZ** 来将元素移近或者移远你的眼睛。这里大家或许发现了一个问题，那就是如果 **translateZ** 的值大于了 **perspective** 会发生什么呢？这时候，由于元素已经移动到你 **眼睛后面** 去了，所以如果你的元素未在垂直距离上有倾斜(沿X或Y旋转)当然是看不到了。
+
+现在我来看下实际效果：
+```
+.container {
+            perspective: 500px;
+            border: 1px solid black;
+        }
+
+        .transformed {
+            transform: rotateY(50deg);
+            background-color: blue;
+        }
+.child {
+            transform: rotateY(-40deg);
+            background-color: lime;
+        }
+```
+
+<p align="center"><img src="https://ztachi.github.io/learn-matrix3d/src/noteImages/s1.png"></p>
+
+_<p align="center">由于最外层设置了 **perspective**，所以当蓝色块沿Y轴顺时针旋转50°的时候，在二维世界的投影就变现为近大远小。</p>_
+
+
+在这个例子里面，我在旋转元素 **.transformed** 里面还加入了一个子元素，让他也旋转， **.transformed** 的旋转很有3D立体感，但是他的子元素却没有，为什么？
+
+因为 **perspective** 创建的3维空间只对第一级子元素 **(.transformed)** 有效。要想子元素 **(.transformed)** 的子元素 **(.child)** 也有立体感，有两种方式。
+
+第一种就是在 **.transformed** 上面也加一个 **perspective** ，但是这样就有个问题，因为我 **.transformed** 已经做了旋转了，所以对于 **.transformed** 创建的 **独立的三维空间** ，朝向就有所不同，所以对于我们观察者来说的投影就有所不同，这或许不是我们想达到的效果。
+
+第二种就是在 **.transformed** 上面加入 **transform-style: preserve-3d** 属性。加上这个属性之后，他下边的第一级子元素 **(.child)** 就与他共享一个 **(.container所创建的)** 三维空间了。结果如下图所示：
+
+<p align="center"><img src="https://ztachi.github.io/learn-matrix3d/src/noteImages/s2.png"></p>
+
+_<p align="center">本节代码见demo2</p>_
