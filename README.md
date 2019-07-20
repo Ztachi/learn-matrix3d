@@ -67,7 +67,7 @@ _<p align="center">由于最外层设置了 **perspective**，所以当蓝色块
 
 第一种就是在 **.transformed** 上面也加一个 **perspective** ，但是这样就有个问题，因为我 **.transformed** 已经做了旋转了，所以对于 **.transformed** 创建的 **独立的三维空间** ，朝向就有所不同，所以对于我们观察者来说的投影就有所不同，这或许不是我们想达到的效果。
 
-第二种就是在 **.transformed** 上面加入 **transform-style: preserve-3d** 属性。加上这个属性之后，他下边的第一级子元素 **(.child)** 就与他共享一个 **(.container所创建的)** 三维空间了。代码结果结果如下所示：
+第二种就是在 **.transformed** 上面加入 **transform-style: preserve-3d** 属性。加上这个属性之后，他下边的第一级子元素 **(.child)** 就与他共享一个 **(.container所创建的)** 三维空间了。代码、结果结果如下所示：
 
 ```
 .container {
