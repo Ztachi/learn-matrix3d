@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>demo-2</title>
+
+
+    <style>
+        body {
+            padding: 50px;
+            text-align: center;
+        }
+
+        ul {
+            display: flex;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        p {
+            margin-bottom: 130px;
+        }
+
+        div {
+            height: 300px;
+            width: 300px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .container {
+            perspective: 500px;
+            border: 1px solid black;
+            float: left;
+            margin-left: 200px;
+        }
+
+        .transformed {
+            transform: rotateY(50deg);
+            background-color: blue;
+        }
+
+        .transformed>div {
+            position: absolute;
+        }
+
+        .threeD {
+            transform-style: preserve-3d;
+        }
+
+        .child {
+            transform: rotateY(-40deg);
+            background-color: lime;
+        }
+
+        .child1 {
+            transform: rotateY(-100deg);
+            background-color: gold;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <p> nothing</p>
+            <div class="container">
+                <div class="transformed">
+                    <div class="child"></div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p> transform-style: preserve-3d;</p>
+            <div class="container">
+                <div class="transformed threeD">
+                    <div class="child"></div>
+                </div>
+            </div>
+        </li>
+        <li>
+                <p> transform-style: preserve-3d;</p>
+                <div class="container">
+                    <div class="transformed threeD">
+                        <div class="child"></div>
+                        <div class="child1"><div class="child"></div></div>
+                    </div>
+                </div>
+            </li>
+    </ul>
+
+
+
+</body>
+
+</html>
