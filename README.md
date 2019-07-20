@@ -32,28 +32,28 @@ _<p align="center">该图显示了向上移动透视原点的效果。</p>_
 假设我HTML结构如下：
 ```
 <div class="container">
-                <div class="transformed">
-                    <div class="child"></div>
-                </div>
- </div>
+  <div class="transformed">
+    <div class="child"></div>
+  </div>
+</div>
  ```
 只要在 **.container** 加上 **perspective** ，在页面上的这个div与你眼睛之间就形成了第三个维度，你看到的页面上的 **.container** 图形，就只是三维空间中的 **.container** 在二维平面的投影。可以通过 **translateZ** 来将元素移近或者移远你的眼睛。这里大家或许发现了一个问题，那就是如果 **translateZ** 的值大于了 **perspective** 会发生什么呢？这时候，由于元素已经移动到你 **眼睛后面** 去了，所以如果你的元素未在垂直距离上有倾斜(沿X或Y旋转)当然是看不到了。
 
 现在我来看下实际效果：
 ```
 .container {
-            perspective: 500px;
-            border: 1px solid black;
-        }
+    perspective: 500px;
+    border: 1px solid black;
+}
 
-        .transformed {
-            transform: rotateY(50deg);
-            background-color: blue;
-        }
+.transformed {
+    transform: rotateY(50deg);
+    background-color: blue;
+}
 .child {
-            transform: rotateY(-40deg);
-            background-color: lime;
-        }
+    transform: rotateY(-40deg);
+    background-color: lime;
+}
 ```
 
 <p align="center"><img src="https://ztachi.github.io/learn-matrix3d/src/noteImages/s1.png"></p>
@@ -71,19 +71,19 @@ _<p align="center">由于最外层设置了 **perspective**，所以当蓝色块
 
 ```
 .container {
-            perspective: 500px;
-            border: 1px solid black;
-        }
+    perspective: 500px;
+    border: 1px solid black;
+}
 
-        .transformed {
-            transform-style: preserve-3d;
-            transform: rotateY(50deg);
-            background-color: blue;
-        }
+.transformed {
+    transform-style: preserve-3d;
+    transform: rotateY(50deg);
+    background-color: blue;
+}
 .child {
-            transform: rotateY(-40deg);
-            background-color: lime;
-        }
+    transform: rotateY(-40deg);
+    background-color: lime;
+}
 ```
 
 <p align="center"><img src="https://ztachi.github.io/learn-matrix3d/src/noteImages/s2.png"></p>
