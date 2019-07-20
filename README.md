@@ -1,6 +1,8 @@
 # 关于matrix3d的持续学习
 
-**[demo](https://ztachi.github.io/learn-matrix3d/src/)**
+**[2d的matrix传送门](https://zhuanlan.zhihu.com/p/74279787)**
+
+**[本文章的demo](https://ztachi.github.io/learn-matrix3d/src/)**
 
 **perspective**：允许作者做出的子元素具有的三维变换看起来好像他们生活在一个共同的三维空间。**perspective-origin**属性提供对应用透视的原点的控制，有效地改变“消失点”的位置。
 [**perspective**为绘制表面(电脑屏幕)到眼睛的距离]
