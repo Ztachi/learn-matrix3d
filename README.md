@@ -39,7 +39,7 @@ _<p align="center">该图显示了向上移动透视原点的效果。</p>_
   </div>
 </div>
  ```
-只要在 **.container** 加上 **perspective** ，在页面上的这个div与你眼睛之间就形成了第三个维度，你看到的页面上的 **.container** 图形，就只是三维空间中的 **.container** 在二维平面的投影。可以通过 **translateZ** 来将元素移近或者移远你的眼睛。这里大家或许发现了一个问题，那就是如果 **translateZ** 的值大于了 **perspective** 会发生什么呢？这时候，由于元素已经移动到你 **眼睛后面** 去了，所以如果你的元素未在垂直距离上有倾斜(沿X或Y旋转)当然是看不到了。
+只要在 **.container** 加上 **perspective** ，在页面上的这个div与你眼睛之间就形成了第三个维度(此外还可以在需要3D透视的元素上单独设置 **transform:perspective(...px)** 为此元素独有的透视原点位置)，你看到的页面上的 **.container** 图形，就只是三维空间中的 **.container** 在二维平面的投影。可以通过 **translateZ** 来将元素移近或者移远你的眼睛。这里大家或许发现了一个问题，那就是如果 **translateZ** 的值大于了 **perspective** 会发生什么呢？这时候，由于元素已经移动到你 **眼睛后面** 去了，所以如果你的元素未在垂直距离上有倾斜(沿X或Y旋转)当然是看不到了。
 
 现在我来看下实际效果：
 ```
@@ -70,7 +70,7 @@ _<p align="center">由于最外层设置了 **perspective**，所以当蓝色块
 
 第一种就是在 **.transformed** 上面也加一个 **perspective** ，但是这样就有个问题，因为我 **.transformed** 已经做了旋转了，所以对于 **.transformed** 创建的 **独立的三维空间** ，朝向就有所不同，所以对于我们观察者来说的投影就有所不同，这或许不是我们想达到的效果。
 
-第二种就是在 **.transformed** 上面加入 **transform-style: preserve-3d** 属性。加上这个属性之后，他下边的第一级子元素 **(.child)** 就与他共享一个 **(.container所创建的)** 三维空间了。代码、结果结果如下所示：
+第二种就是在 **.transformed** 上面加入 **transform-style: preserve-3d** 属性(使所有子元素都表现为3D特性,默认为 **transform-style: flat** 子元素为2D的特性)。加上这个属性之后，他下边的第一级子元素 **(.child)** 就与他共享一个 **(.container所创建的)** 三维空间了。代码、结果结果如下所示：
 
 ```
 .container {
@@ -93,3 +93,8 @@ _<p align="center">由于最外层设置了 **perspective**，所以当蓝色块
 <p align="center"><img src="https://ztachi.github.io/learn-matrix3d/src/noteImages/s2.png"></p>
 
 _<p align="center">本节代码见demo2</p>_
+
+# 背面可见性
+父级设置 **transform-style: preserve-3d** 之后，其所有子元素都具有了3D特性，此时允许设置 **backface-visibility** 来控制元素的背面是否可见。 **backface-visibility** 有两个值 **visible | hidden** ，默认为 **visible**。
+<p align="center"><img src="https://ztachi.github.io/learn-matrix3d/src/noteImages/s3.png"></p>
+_<p align="center">有了这个属性，我们就能很轻易的实现正反面扑克牌、正面朝外的立方体等效果（见demo3）</p>_

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>demo-3</title>
+
+
+    <style>
+        @keyframes rotate {
+            0% {
+                transform: rotateY(0) rotateZ(40deg);
+            }
+
+            100% {
+                transform: rotateY(360deg) rotateZ(40deg);
+            }
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        body {
+            padding: 50px;
+            text-align: center;
+        }
+
+        .container {
+            transform-style: preserve-3d;
+            float: left;
+            margin-left: 200px;
+            position: relative;
+            transform-origin: center center;
+            transform:rotateY(0) rotateZ(40deg);
+            animation: rotate 5s linear infinite;
+        }
+
+        .container>div {
+            position: absolute;
+            width: 214px;
+            height: 320px;
+            background: url('./noteImages/card.png') no-repeat;
+            background-size: 442px 400px;
+            background-position-y: center;
+            backface-visibility: hidden;
+        }
+
+        .container>div:first-child {
+            transform: rotateY(180deg);
+            z-index: -1;
+        }
+
+        .container>div:last-child {
+            background-position-x: -228px;
+        }
+
+        @keyframes cubeRotate {
+            0% {
+                transform: rotateY(0) rotateY(0) rotateZ(0);
+            }
+
+            100% {
+                transform: rotateY(360deg) rotateY(360deg) rotateZ(360deg);
+            }
+        }
+
+        #cube{
+            transform-style: preserve-3d;
+            transform: perspective(500px) rotateY(40deg);
+            position: relative;
+            width: 400px;
+            height: 400px;
+            margin-left: 600px;
+            margin-top: 300px;
+            animation: cubeRotate 5s linear infinite;
+        }
+        #cube>li{
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border: 1px solid #eee;
+            line-height: 200px;
+            text-align: center;
+            font-size: 100px;
+            font-weight: bold;
+            backface-visibility: hidden;
+        }
+        #cube>li:nth-child(2){
+            transform-origin: left center;
+            transform: translateX(200px) rotateY(90deg);
+        }
+        #cube>li:nth-child(3){
+            transform-origin: top center;
+            transform: translateZ(-200px) rotateX(90deg);
+        }
+        #cube>li:nth-child(4){
+            transform-origin: bottom center;
+            transform: translateZ(-200px) rotateX(-90deg);
+        }
+        #cube>li:nth-child(5){
+            transform-origin: right center;
+            transform: translateX(-200px) rotateY(-90deg);
+        }
+        #cube>li:nth-child(6){
+            transform-origin: center center;
+            transform: translateZ(-200px) rotateY(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div></div>
+        <div></div>
+    </div>
+
+    <ul id="cube">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+</body>
+
+</html>
