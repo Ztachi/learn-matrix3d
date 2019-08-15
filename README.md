@@ -97,4 +97,5 @@ _<p align="center">本节代码见demo2</p>_
 # 背面可见性
 父级设置 **transform-style: preserve-3d** 之后，其所有子元素都具有了3D特性，此时允许设置 **backface-visibility** 来控制元素的背面是否可见。 **backface-visibility** 有两个值 **visible | hidden** ，默认为 **visible**。
 <p align="center"><img src="https://ztachi.github.io/learn-matrix3d/src/noteImages/s3.png"></p>
+
 _<p align="center">有了这个属性，我们就能很轻易的实现正反面扑克牌、正面朝外的立方体等效果（见demo3）</p>_
